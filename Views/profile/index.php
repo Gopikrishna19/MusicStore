@@ -1,0 +1,1 @@
+<?php $curr="news"; require "Views/master/leftpanel.php"; ?>

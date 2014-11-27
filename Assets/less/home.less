@@ -1,0 +1,60 @@
+﻿@import "common.less";
+
+.header {
+    .wrapper {
+        display: block;
+        .center-it();
+    }
+}
+
+.body {
+    padding: 25px;
+
+    .wrapper {
+        overflow: auto;
+
+        .column {
+            color: @midnight;
+
+            &.left {
+                float: left;
+                font-size: 25px;
+                width: 40%;
+            }
+
+            &.right {
+                float: right;
+                width: 50%;
+
+                form {
+                    padding-right: 10%;
+                    margin: 25px 0;
+
+                    .txt {
+                        margin-bottom: 15px;
+
+                        &.error {
+                            border-color: @pomegranate;
+                        }
+                    }
+                }
+
+                p.error {
+                    font-size: 14px;
+                    color: @pomegranate;
+                    margin-bottom: 15px;
+                    display: none;
+
+                    &.open {
+                        display: block;
+                    }
+                }
+
+                .loader {
+                    float: right;
+                    .loader(40px);
+                }
+            }
+        }
+    }
+}

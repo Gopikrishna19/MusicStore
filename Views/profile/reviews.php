@@ -1,0 +1,1 @@
+<?php $curr="rev"; require "Views/master/leftpanel.php"; ?>

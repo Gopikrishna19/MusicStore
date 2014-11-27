@@ -1,0 +1,36 @@
+﻿@import "common.less";
+
+.leftpanel {
+    .fixed(@header-height, 0, 0);
+    width: 250px;
+    padding: 25px;
+
+    ul {
+        li {
+            margin-bottom: 15px;
+
+            a {
+                padding: 5px 10px;
+                display: block;
+                transition: background-color .3s, color .3s;
+                border-radius: 2px;
+
+                &:hover, &.active, &:active {
+                    background-color: @amethyst;
+                    color: #FFF;
+                }
+
+                &.active, &:active {
+                    @shadow: 0 0 5px darken(@amethyst, 25%);
+                    text-shadow: @shadow;
+                    box-shadow: inset @shadow;
+                }
+            }
+
+            &.sep {
+                height: 1px;
+                box-shadow: 0 0 20px @asbestos;
+            }
+        }
+    }
+}

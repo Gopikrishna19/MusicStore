@@ -1,0 +1,1 @@
+<?php $curr="con"; require "Views/master/leftpanel.php"; ?>

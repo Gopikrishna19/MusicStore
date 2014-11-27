@@ -1,0 +1,50 @@
+@header-height: 65px;
+@window-width: 950px;
+
+/* Colors */
+@clouds: #ecf0f1;
+@amethyst: #9b59b6;
+@midnight: #2c3e50;
+@asphalt: #34495e;
+@highlight: #3498db;
+@pomegranate: #c0392b;
+@silver: #bdc3c7;
+@asbestos: #7f8c8d;
+
+/* Font */
+@bold: 700;
+@medium: 600;
+@normal: 400;
+
+/* Functions */
+.center-it {
+    width: @window-width;
+    margin: auto;
+}
+
+.absolute(@top: auto, @left: auto, @bottom: auto, @right: auto, @z: auto) {
+    position: absolute;
+    top: @top;
+    left: @left;
+    right: @right;
+    bottom: @bottom;
+    z-index: @z;
+}
+
+.fixed(@top: auto, @left: auto, @bottom: auto, @right: auto, @z: auto) {
+    .absolute(@top, @left, @bottom, @right, @z);
+    position: fixed;
+}
+
+.loader(@size) {
+    opacity: 0;
+    height: @size;
+    width: @size;
+    background-image: url(/Assets/img/loader.gif);
+    background-size: 100% 100%;
+    transition: opacity .3s;
+
+    &.open {
+        opacity: 1;
+    }
+}

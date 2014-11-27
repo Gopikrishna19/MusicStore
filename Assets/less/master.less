@@ -1,0 +1,106 @@
+@import "common.less";
+
+html, body {
+    &, & * {
+        font-family: 'Open Sans', sans-serif;
+        font-size: inherit;
+        font-weight: normal;
+        color: inherit;
+        box-sizing: border-box;
+        text-decoration: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        border: none;
+        list-style: none;
+    }
+
+    background-color: @clouds;
+    min-width: 1000px;
+}
+
+.header {
+    height: @header-height;
+    box-shadow: 0 0 10px - 1px @amethyst;
+    color: @amethyst;
+    padding: 0 25px;
+    background-color: white;
+    @size: 20px;
+
+    .title {
+        font-size: @size * 1.5;
+        font-weight: @bold;
+        line-height: @header-height - 5;
+
+        .icon {
+            height: @size + 5;
+            width: @size + 5;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+
+    .right {
+        float: right;
+
+        li {
+            float: left;
+
+            a {
+                margin-top: 20px;
+                padding: 10px 20px 8px;
+                display: block;
+                border-bottom: 5px solid rgba(155, 89, 182, 0);
+
+                &:hover {
+                    border-bottom-color: rgba(155, 89, 182, 0.65);
+                }
+
+                &:hover, &:focus {
+                    box-shadow: 0 0 3px rgba(155, 89, 182, 0.25);
+                }
+
+                &:active {
+                    border-bottom-color: rgba(155, 89, 182, 1);
+                }
+            }
+        }
+    }
+}
+
+form {
+    .txt {
+        display: block;
+        margin-bottom: 12px;
+        padding: 10px 16px;
+        width: 100%;
+        background-color: white;
+        border: 1px solid white;
+
+        &:hover {
+            border-color: fade(@asphalt, 50%);
+        }
+
+        &:focus {
+            border-color: @amethyst;
+        }
+    }
+
+    .btn {
+        background-color: @asphalt;
+        padding: 10px 40px;
+        color: white;
+
+        &:hover, &:focus {
+            background-color: @amethyst;
+        }
+    }
+
+    a.link {
+        margin-left: 25px;
+
+        &:hover, &:focus {
+            color: @amethyst;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+﻿@import "common.less";
+
+.content {
+    max-width: 800px;
+    margin-left: 250px;
+    padding: 25px;
+    color: @midnight;
+
+    .block {
+        background-color: white;
+        border-bottom: 2px solid @silver;
+        border-radius: 3px;
+        box-shadow: 0 0 2px @silver;
+        padding: 20px;
+        margin-bottom: 25px;
+        overflow: auto;
+
+        .post-stamp {
+            font-size: 12px;
+            margin-bottom: 12px;
+            color: @asbestos;
+        }
+    }
+
+    .newpost {
+        transition: all .5s;
+        height: 140px;
+        overflow: hidden;
+
+        &.no-focus {
+            height: 46px;
+            padding: 0;
+        }
+
+        .left {
+            float: left;
+
+            .visi {
+                @size: 26px;
+                border-radius: 2px;
+                height: @size;
+                width: @size;
+                float: left;
+                margin: 4px;
+                padding: 17px;
+                background-size: 26px 26px;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 2px;
+
+                &.pri {
+                    background-image: url(/Assets/img/private.png);
+                }
+
+                &.pub {
+                    background-image: url(/Assets/img/public.png);
+                }
+
+                &.fol {
+                    background-image: url(/Assets/img/follow.png);
+                }
+
+                &:hover {
+                    box-shadow: 0 0 3px @amethyst;
+                }
+
+                &.active {
+                    background-color: @midnight;
+                    box-shadow: inset 0 0 5px darken(@midnight, 25%);
+                }
+            }
+        }
+
+        .right {
+            float: right;
+        }
+    }
+
+    .loader {
+        @size: 64px;
+        margin: auto;
+        .loader(@size);
+        margin-bottom: 0;
+        transform: scale(0);
+        transition: all .3s;
+        height: 0;
+
+        &.open {
+            transform: scale(1);
+            height: @size;
+            margin-bottom: 25px;
+        }
+    }
+}

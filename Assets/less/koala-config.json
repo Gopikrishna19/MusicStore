@@ -1,0 +1,25 @@
+// Less project settings, you can edit it and set custom settings.
+{
+	// The mappings of source directory and output directory
+	"mappings": [
+		 {	
+		 	"src": "./",
+		 	"dest": "../css/"
+		 }
+	],
+	"ignores": ["*.css, common.less, prefixer.less"],	
+	"options": {		
+		"outputStyle": "compress",		
+		"lineComments": false,
+		"debugInfo": false,
+
+		"strictMath": false,
+
+		"strictUnits": false,
+
+		"sourceMap": false
+	},
+
+	"customOptions": [],
+	"includePaths": []
+}
