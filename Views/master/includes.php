@@ -5,7 +5,9 @@
 <?php endforeach; ?>
 
 <script src="/Assets/js/jquery.js"></script>
+<script src="/Assets/js/plugin.js"></script>
 <?php foreach($this->js as $j): ?>
 <script src="/Assets/js/<?php echo $j; ?>.js"></script>
 <?php endforeach; ?>
+
 <title>Music Share<?php echo isset($this->title) ? " - ".$this->title : ""; ?></title>

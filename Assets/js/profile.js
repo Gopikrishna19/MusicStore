@@ -10,11 +10,13 @@ $(function () {
                 visi: defVisibility
             },
             method: "post",
-            success: function (e) {
-                console.log(e);
+            complete: function (e) {
+                location.reload();
             }
         });
     });
+
+    $("form.post input[type=reset]").click(function () {  $(this).closest(".newpost").addClass("no-focus"); });
 
     $("form.post .txt").focus(function () { $(this).closest(".newpost").removeClass("no-focus"); })
     $("form.post .visi").click(function () {
@@ -23,5 +25,7 @@ $(function () {
             $(this).addClass("active");
             defVisibility = $(this).data("val");
         }
-    })
+    });
+
+    $(".rating").rating();
 })

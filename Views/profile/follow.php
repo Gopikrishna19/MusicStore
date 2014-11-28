@@ -1,1 +1,0 @@
-<?php $curr="fol"; require "Views/master/leftpanel.php"; ?>

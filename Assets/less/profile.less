@@ -15,10 +15,30 @@
         margin-bottom: 25px;
         overflow: auto;
 
-        .post-stamp {
-            font-size: 12px;
+        .post-stamp, .rev-stamp {
             margin-bottom: 12px;
-            color: @asbestos;
+            .stamp();
+        }
+
+        .rev-concert {
+            margin-bottom: 12px;
+
+            .link {
+                color: @highlight;
+                font-weight: 600;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .rev-content {
+            margin-bottom: 12px;
+        }
+
+        .rev-rating {
+            .rating(24px);
         }
     }
 
@@ -49,15 +69,15 @@
                 border-radius: 2px;
 
                 &.pri {
-                    background-image: url(/Assets/img/private.png);
+                    .background("private");
                 }
 
                 &.pub {
-                    background-image: url(/Assets/img/public.png);
+                    .background("public");
                 }
 
                 &.fol {
-                    background-image: url(/Assets/img/follow.png);
+                    .background("follow");
                 }
 
                 &:hover {
@@ -73,6 +93,14 @@
 
         .right {
             float: right;
+
+            .link {
+                margin-right: 12px;
+
+                &:hover {
+                    color: @pomegranate;
+                }
+            }
         }
     }
 
@@ -89,6 +117,112 @@
             transform: scale(1);
             height: @size;
             margin-bottom: 25px;
+        }
+    }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .section {
+        .entry {
+            display: inline-block;
+            width: 45%;
+            margin-right: 4%;
+            padding: 0;
+            position: relative;
+            background-color: lighten(@clouds, 4%);
+
+            .icon {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-color: white;
+                float: left;
+
+                @size: 75px;
+                height: @size;
+                width: @size;
+            }
+
+            .name {
+                height: 50px;
+                line-height: 50px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;                
+                vertical-align: middle;                
+                width : 240px;
+            }
+
+            .stamp {
+                height: 25px;
+                .stamp();
+            }
+
+            div:not(.icon) {
+                margin-left: 75px;
+                padding-left: 12px;
+            }
+
+            .options {
+                width: 0;
+                overflow: hidden;
+                .absolute(0,auto,0,0);
+                background-color: fade(@midnight, 90%);
+                transition: width .2s;
+
+                li {
+                    width: 21px;
+                    height: 21px;
+                    margin: 2px 7px;
+                    background-size: 100% 100%;
+                    cursor: pointer;
+
+                    &.go {
+                        .background("view");
+
+                        a {
+                            display: block;
+                            height: 100%;
+                        }
+                    }
+
+                    &.rm {
+                        .background("delete");
+                    }
+
+                    &.at {
+                        .background("add");
+                    }
+
+                    &.dn {
+                        .background("done");
+                    }
+                }
+            }
+
+            &.concert .icon {
+                .background("concert");
+            }
+
+            &.band {
+                .icon {
+                    .background("band");
+                }
+
+                .name {
+                    height: 75px;
+                    line-height: 75px;
+                }
+            }
+
+            &:hover {
+                .options {
+                    width: 35px;
+                }
+            }
         }
     }
 }

@@ -8,5 +8,10 @@ class ActionLink{
         echo "<a href='/$controller$action$param$query'".($class != NULL ? " class='$class'":"")
                 .($id != NULL ? " id='$id'":"").($style != NULL ? " style='$style'":"").">$link</a>";
     }
+    
+    public static function external($link, $href = "#", $class = NULL, $id = NULL, $style = NULL) {
+        echo "<a href='$href'".($class != NULL ? " class='$class'":"")
+                .($id != NULL ? " id='$id'":"").($style != NULL ? " style='$style'":"").">$link</a>";
+    }
 }
 ?>

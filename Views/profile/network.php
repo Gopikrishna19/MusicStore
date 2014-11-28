@@ -1,0 +1,1 @@
+<?php $curr="net"; require "Views/master/leftpanel.php"; ?>

@@ -15,7 +15,7 @@
         {
             $sth = $this->prepare($sql);
             foreach ($array as $key => $value) {
-            $sth->bindValue("$key", $value);
+                $sth->bindValue("$key", $value);
             }
             
             $sth->execute();
@@ -38,10 +38,7 @@
             
             foreach ($data as $key => $value) {
                 $sth->bindValue(":$key", $value);
-                echo "$key $value \n\r";
-            }
-
-            print_r($this->errorInfo());
+            }            
             
             $sth->execute();
         }
