@@ -1,4 +1,4 @@
-<?php $curr="post"; require "Views/master/leftpanel.php"; ?>
+<?php $curr="post"; require "Views/master/leftpanel.php"; $nothing = TRUE; ?>
 <div class="content">
     <?php if(!isset($this->foreign)): ?>
     <div class="block newpost no-focus">
@@ -16,10 +16,14 @@
         </form>
     </div>
     <?php endif; ?>
-    <?php foreach($this->posts as $row => $post): ?>
+    <?php foreach($this->posts as $row => $post): $nothing = FALSE; ?>
     <div class="block post">
         <div class="post-stamp">on <?php echo Format::prettyDate($post["postdate"]); ?></div>
         <div class="post-content"><?php echo $post["text"]; ?></div>
     </div>
     <?php endforeach; ?>
+
+    <?php if($nothing): ?>
+    <div class="section-title empty">Sorry, there are no posts to display.</div>
+    <?php endif; ?>
 </div>

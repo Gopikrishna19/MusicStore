@@ -5,7 +5,7 @@
         }
 
         /**
-         * select
+         * select example: select("select * from user where userid = :uid", [":uid" => 6])
          * @param string $sql An SQL string
          * @param array $array Paramters to bind
          * @param constant $fetchMode A PDO Fetch mode
@@ -17,13 +17,17 @@
             foreach ($array as $key => $value) {
                 $sth->bindValue("$key", $value);
             }
-            
+
+            //echo "<pre>";
+            //print_r($sth);
+            //echo "</pre>";
+
             $sth->execute();
             return $sth->fetchAll($fetchMode);
         }
     
         /**
-         * insert
+         * insert example: insert("user", ["username" => "gopi", "password" => "mypass"])
          * @param string $table A name of table to insert into
          * @param string $data An associative array
          */

@@ -22,14 +22,9 @@
             return $this->db->select("select * from concert where userid = :userid order by ctime", [":userid" => User::toId($username)]);
         }
 
-        public function readAttending($username) {
-            return $this->db->select("select * from attend join concert using(cid) where attend.userid = :userid and attended = 0 order by ctime", 
-            [":userid" => User::toId($username)]);
-        }
-
-        public function readAttended($username) {
-            return $this->db->select("select * from attend join concert using(cid) where attend.userid = :userid and attended = 1 order by ctime", 
-            [":userid" => User::toId($username)]);
+        public function readAttend($username, $attend = 0) {
+            return $this->db->select("select * from attend join concert using(cid) where attend.userid = :userid and attended = :attend order by ctime", 
+            [":userid" => User::toId($username), ":attend" => $attend]);
         }
 
         public function readArtist($username) {
@@ -38,6 +33,21 @@
 
         public function readFan($username) {
             return $this->db->select("select * from fan join band using(bandid) where userid = :userid", [":userid" => User::toId($username)]);
+        }
+
+        public function readFollow($username, $follower = FALSE, $mutual = FALSE) {
+            $using = $follower ? "followerid" : "userid";
+            $fcol = $follower ? "userid" : "followerid";
+            if(!$mutual) {
+                return $this->db->select("select * from follow f join user u on f.$using = u.userid where f.$fcol = :userid",
+                [":userid" => User::toId($username)]);
+            } else {
+                return $this->db->select(
+                "select * from follow f join user u on f.$using = u.userid where ".
+                "f.$using in (select $using from follow where $fcol = :home) and ".
+                "f.$using in (select $using from follow where $fcol = :guest) group by f.$using",
+                [":home" => User::id(),":guest" => User::toId($username)]);
+            }
         }
     }
 ?>

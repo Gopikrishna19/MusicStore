@@ -4,7 +4,7 @@
     <div class="section-title">Posted by Me</div>
     <div class="section by">
         <?php foreach($this->by as $entry): ?>
-        <div class="entry block concert" data-cid="<?php echo $entry["cid"]; ?>">
+        <div class="entry block concert" data-id="<?php echo $entry["cid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo $entry["cname"]; ?></div>
             <div class="stamp">on <?php echo Format::prettyDate($entry["created"]); ?></div>
@@ -22,7 +22,7 @@
     <div class="section-title">I am Attending</div>
     <div class="section attin">
         <?php foreach($this->attending as $entry): ?>
-        <div class="entry block concert" data-cid="<?php echo $entry["cid"]; ?>">
+        <div class="entry block concert" data-id="<?php echo $entry["cid"]; ?>">
             <div class="icon"></div>
             <div class="concert-name"><?php echo $entry["cname"]; ?></div>
             <div class="concert-stamp">Time: <?php echo Format::prettyDate($entry["ctime"]); ?></div>
@@ -40,7 +40,7 @@
     <div class="section-title">I have Attended</div>
     <div class="section atted">
         <?php foreach($this->attended as $entry): ?>
-        <div class="entry block concert" data-cid="<?php echo $entry["cid"]; ?>">
+        <div class="entry block concert" data-id="<?php echo $entry["cid"]; ?>">
             <div class="icon"></div>
             <div class="concert-name"><?php echo $entry["cname"]; ?></div>
             <div class="concert-stamp">Time: <?php echo Format::prettyDate($entry["ctime"]); ?></div>

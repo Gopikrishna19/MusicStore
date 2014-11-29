@@ -4,7 +4,7 @@
     <div class="section-title">I am an Artist In</div>
     <div class="section by">
         <?php foreach($this->artist as $entry): ?>
-        <div class="entry block band" data-cid="<?php echo $entry["bandid"]; ?>">
+        <div class="entry block band" data-id="<?php echo $entry["bandid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo $entry["bname"]; ?></div>            
             <ul class="options">
@@ -20,7 +20,7 @@
     <div class="section-title">I am a Fan of</div>
     <div class="section by">
         <?php foreach($this->fan as $entry): ?>
-        <div class="entry block band" data-cid="<?php echo $entry["bandid"]; ?>">
+        <div class="entry block band" data-id="<?php echo $entry["bandid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo $entry["bname"]; ?></div>            
             <ul class="options">
@@ -30,5 +30,9 @@
         </div>
         <?php endforeach; ?>
     </div>
+    <?php endif; ?>
+
+    <?php if($nothing): ?>
+    <div class="section-title empty">Sorry, there are no bands to display.</div>
     <?php endif; ?>
 </div>

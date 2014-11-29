@@ -8,6 +8,8 @@
             $this->view->css[] = "profile";
             $this->view->css[] = "leftpanel";
             $this->view->js[] = "profile";
+
+            $this->view->foreign = FALSE;
         }
     
         public function index() {
@@ -44,8 +46,8 @@
     
             $this->view->by = $this->model->readBy($username);
             if(User::isOwner($username) || User::isFollower($username)) {
-                $this->view->attended = $this->model->readAttended($username);
-                $this->view->attending = $this->model->readAttending($username);
+                $this->view->attended = $this->model->readAttend($username);
+                $this->view->attending = $this->model->readAttend($username, 1);
             }
     
             $this->view->renderView(__CLASS__,__FUNCTION__);
@@ -63,7 +65,16 @@
         }
     
         public function network($username = NULL) {
+            $username = $username == NULL ? User::name() : $username;
             $this->setForeign($username);
+
+            $this->view->following = $this->model->readFollow($username);
+            $this->view->follower = $this->model->readFollow($username, TRUE);
+            
+            if($this->view->foreign) {
+                $this->view->mfollowing = $this->model->readFollow($username, FALSE, TRUE);
+                $this->view->mfollower = $this->model->readFollow($username, TRUE, TRUE);
+            }
     
             $this->view->renderView(__CLASS__,__FUNCTION__);
         }

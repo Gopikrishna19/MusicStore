@@ -12,18 +12,19 @@ html, body {
         border: none;
     }
 
-    & * {
-        text-decoration: none;
-        outline: none;
-        list-style: none;
-        background-color: transparent;
-    }
+        & * {
+            text-decoration: none;
+            outline: none;
+            list-style: none;
+            background-color: transparent;
+        }
 
     background-color: @clouds;
     min-width: 1000px;
 }
 
 .header {
+    .fixed(0,0,auto,0,10);
     height: @header-height;
     box-shadow: 0 0 10px - 1px @amethyst;
     color: @amethyst;
@@ -107,4 +108,8 @@ form {
             color: @amethyst;
         }
     }
+}
+
+.body {
+    margin-top: @header-height;
 }

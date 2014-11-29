@@ -28,7 +28,7 @@
 							break;
 				}
 				
-            } else {                
+            } else {
                 $controller = new self::$_error(404);
             }
 			
