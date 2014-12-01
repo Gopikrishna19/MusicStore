@@ -7,7 +7,7 @@
         <div class="entry block concert" data-id="<?php echo $entry["cid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo $entry["cname"]; ?></div>
-            <div class="stamp">on <?php echo Format::prettyDate($entry["created"]); ?></div>
+            <div class="stamp">on <?php echo Format::prettyDateTime($entry["created"]); ?></div>
             <ul class="options">
                 <li class="go" title="Open"><?php ActionLink::create("","concert","view",$entry["cid"],NULL,"go"); ?></li>
                 <li class="rm" title="Delete"></li>
@@ -24,8 +24,8 @@
         <?php foreach($this->attending as $entry): ?>
         <div class="entry block concert" data-id="<?php echo $entry["cid"]; ?>">
             <div class="icon"></div>
-            <div class="concert-name"><?php echo $entry["cname"]; ?></div>
-            <div class="concert-stamp">Time: <?php echo Format::prettyDate($entry["ctime"]); ?></div>
+            <div class="name"><?php echo $entry["cname"]; ?></div>
+            <div class="stamp">Time: <?php echo Format::prettyDateTime($entry["ctime"]); ?></div>
             <ul class="options">
                 <li class="go" title="Open"><?php ActionLink::create("","concert","view",$entry["cid"],NULL,"go"); ?></li>
                 <li class="rm" title="Cancel"></li>
@@ -42,8 +42,8 @@
         <?php foreach($this->attended as $entry): ?>
         <div class="entry block concert" data-id="<?php echo $entry["cid"]; ?>">
             <div class="icon"></div>
-            <div class="concert-name"><?php echo $entry["cname"]; ?></div>
-            <div class="concert-stamp">Time: <?php echo Format::prettyDate($entry["ctime"]); ?></div>
+            <div class="name"><?php echo $entry["cname"]; ?></div>
+            <div class="stamp">Time: <?php echo Format::prettyDateTime($entry["ctime"]); ?></div>
             <ul class="options">
                 <li class="go" title="Open"><?php ActionLink::create("","concert","view",$entry["cid"],NULL,"go"); ?></li>
                 <li class="rm" title="Mark as Not Attended"></li>

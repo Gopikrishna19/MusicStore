@@ -1,6 +1,6 @@
 <?php $curr="post"; require "Views/master/leftpanel.php"; $nothing = TRUE; ?>
 <div class="content">
-    <?php if(!isset($this->foreign)): ?>
+    <?php if(!$this->foreign): ?>
     <div class="block newpost no-focus">
         <form class="post">
             <input type="text" class="txt" placeholder="Write a new Post">
@@ -18,8 +18,8 @@
     <?php endif; ?>
     <?php foreach($this->posts as $row => $post): $nothing = FALSE; ?>
     <div class="block post">
-        <div class="post-stamp">on <?php echo Format::prettyDate($post["postdate"]); ?></div>
-        <div class="post-content"><?php echo $post["text"]; ?></div>
+        <div class="stamp">on <?php echo Format::prettyDateTime($post["postdate"]); ?></div>
+        <div class="text"><?php echo $post["text"]; ?></div>
     </div>
     <?php endforeach; ?>
 

@@ -7,7 +7,7 @@
         <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
-            <div class="stamp">on <?php echo Format::prettyDate($entry["followdate"]); ?></div>
+            <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
             <ul class="options">
                 <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
                 <li class="rm" title="Unfollow"></li>
@@ -24,7 +24,7 @@
         <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
-            <div class="stamp">on <?php echo Format::prettyDate($entry["followdate"]); ?></div>
+            <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
             <ul class="options">
                 <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
                 <li class="rm" title="Unfollow"></li>
@@ -41,7 +41,7 @@
         <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
-            <div class="stamp">on <?php echo Format::prettyDate($entry["followdate"]); ?></div>
+            <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
             <ul class="options">
                 <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
                 <li class="rm" title="Unfollow"></li>
@@ -58,7 +58,7 @@
         <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
-            <div class="stamp">on <?php echo Format::prettyDate($entry["followdate"]); ?></div>
+            <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
             <ul class="options">
                 <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
                 <li class="rm" title="Unfollow"></li>

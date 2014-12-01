@@ -1,0 +1,121 @@
+﻿@import "common.less";
+
+.content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
+
+    .left {
+        float: left;
+        width: 50%;
+        color: @midnight;
+
+        .icon {
+            background-image: url(/Assets/img/concert.png);
+            height: 100px;
+            background-size: 75px 75px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 100px;
+            float: left;
+            background-color: #FFF;
+            box-shadow: 0 0 3px #AAA;
+            margin-top: 16px;
+        }
+
+        div:not(.icon) {
+            margin-left: 150px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .link {
+            color: @highlight;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .label {
+            font-weight: 600;
+
+            &::before {
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+
+        .band::before {
+            content: "Performed by: ";
+        }
+
+        .date::before {
+            content: "Date: ";
+        }
+
+        .time::before {
+            content: "Time: ";
+        }
+
+        .venue {
+            margin-bottom: 25px;
+
+            &::before {
+                content: "Venue: ";
+            }
+        }
+
+        .approve {
+            font-size: 12px;
+            color: @pomegranate;
+            margin-bottom: 12px;
+
+            &::before {
+                content: "( ";
+            }
+
+            &::after {
+                content: " )";
+            }
+
+            &.yes {
+                color: @emerald;
+            }
+        }
+
+        .rating {
+            .rating(40px);
+        }
+    }
+
+    .right {
+        float: right;
+        width: 47.5%;
+
+        .block {
+            .block();
+
+            .text {
+                margin-bottom: 20px;
+            }
+        }
+
+        .empty {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .rating {
+            .rating(24px);
+        }
+    }
+
+    .stamp {
+        margin-bottom: 6px;
+        .stamp();
+    }
+}

@@ -28,7 +28,7 @@
         }
 
         public function readArtist($username) {
-            return $this->db->select("select * from band");
+            return $this->db->select("select * from band join artist using(bandid) where userid = :userid", [":userid" => User::toId($username)]);
         }
 
         public function readFan($username) {

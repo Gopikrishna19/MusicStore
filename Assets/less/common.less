@@ -10,6 +10,7 @@
 @pomegranate: #c0392b;
 @silver: #bdc3c7;
 @asbestos: #7f8c8d;
+@emerald: #2ecc71;
 
 /* Font */
 @bold: 700;
@@ -112,4 +113,14 @@
 
 .background(@url, @ext: "png") {
     background-image: url("/Assets/img/@{url}.@{ext}");
+}
+
+.block() {
+    background-color: white;
+    border-bottom: 2px solid @silver;
+    border-radius: 3px;
+    box-shadow: 0 0 2px @silver;
+    padding: 20px;
+    margin-bottom: 25px;
+    overflow: auto;
 }
