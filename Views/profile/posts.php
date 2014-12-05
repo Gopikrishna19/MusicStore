@@ -18,6 +18,7 @@
     <?php endif; ?>
     <?php foreach($this->posts as $row => $post): $nothing = FALSE; ?>
     <div class="block post">
+        <?php if(!$this->foreign) { ?><div class="delete" data-id="<?php echo $post["postid"]; ?>">delete</div><?php } ?>
         <div class="stamp">on <?php echo Format::prettyDateTime($post["postdate"]); ?></div>
         <div class="text"><?php echo $post["text"]; ?></div>
     </div>

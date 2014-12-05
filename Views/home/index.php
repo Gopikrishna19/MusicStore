@@ -11,7 +11,7 @@
             <div class="loader"></div>
             <input type="submit" value="Go!" class="btn">
             <?php ActionLink::create("Register","home","register",NULL,NULL,"link"); ?>
-            <?php ActionLink::create("Forgot Password","home","forgot",NULL,NULL,"link"); ?>
+            <?php //ActionLink::create("Forgot Password","home","forgot",NULL,NULL,"link"); ?>
         </form>
         <p class="error invalid">
             * Invalid username and/or password.

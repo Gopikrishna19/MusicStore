@@ -25,6 +25,37 @@
                     text-shadow: @shadow;
                     box-shadow: inset @shadow;
                 }
+
+                & + form {
+                    display: none;
+                    background-color: fade(@midnight, 10%);
+                    box-shadow: 0 0 5px fade(darken(@midnight, 25%), 10%) inset;
+                    padding: 6px;
+                    border-radius: 0px 0px 3px 3px;
+                    overflow: auto;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    .txt {
+                        padding: 5px 10px;
+                        margin-bottom: 2px;
+                    }
+
+                    .btn {
+                        padding: 5px 10px;
+
+                        &:last-child {
+                            margin-top: 6px;
+                            float: right;
+                        }
+                    }
+                }
+
+                &.active + form {
+                    display: block;
+                }
             }
 
             &.sep {
@@ -32,5 +63,14 @@
                 box-shadow: 0 0 20px @asbestos;
             }
         }
+    }
+}
+
+.body {
+    .content {
+        max-width: 800px;
+        margin-left: 250px;
+        padding: 25px;
+        color: @midnight;
     }
 }

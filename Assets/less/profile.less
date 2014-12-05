@@ -1,11 +1,6 @@
 ﻿@import "common.less";
 
 .content {
-    max-width: 800px;
-    margin-left: 250px;
-    padding: 25px;
-    color: @midnight;
-
     .block {
         .block();
 
@@ -32,8 +27,25 @@
             margin-bottom: 12px;
         }
 
-        .rating {
-            .rating(24px);
+        .delete {
+            .absolute(0, auto, auto, 0);
+            background-color: @midnight;
+            color: white;
+            padding: 0;
+            font-size: 12px;
+            border-bottom-left-radius: 4px;
+            .background("delete");
+            background-size: auto 15px;
+            background-repeat: no-repeat;
+            background-position: 3px center;
+            height: 0;
+            transition: height .3s, padding .3s;
+            cursor: pointer;
+        }
+
+        &:hover .delete {
+            height: 21px;
+            padding: 2px 10px 2px 20px;
         }
     }
 
@@ -119,5 +131,98 @@
         font-size: 22px;
         font-weight: 700;
         margin-bottom: 12px;
+
+        .edit {
+            font-size: 14px;
+
+            &:hover {
+                color: @highlight;
+            }
+        }
+    }
+
+    .section {
+        .label {
+            font-weight: 600;
+
+            &::before, &::after {
+                font-weight: 400;
+                font-size: 14px;
+            }
+
+            &.from::before {
+                content: "Joined on ";
+            }
+
+            &.city::before {
+                content: "from ";
+            }
+
+            &.followers {
+                &::before {
+                    content: "has ";
+                }
+
+                &::after {
+                    content: " followers";
+                }
+            }
+
+            &.following {
+                &::before {
+                    content: "and following ";
+                }
+
+                &::after {
+                    content: " people";
+                }
+            }
+        }
+    }
+
+    form.details, form.password {
+        padding-bottom: 25px;
+
+        input {
+            padding: 5px 20px;
+
+            &.txt {
+                display: inline;
+                width: 275px;
+                margin-right: 10px;
+            }
+        }
+
+        p.error {
+            font-size: 14px;
+            color: @pomegranate;
+            margin-bottom: 15px;
+            display: none;
+
+            &.open {
+                display: block;
+            }
+        }
+
+        .status {
+            color: @emerald;
+            font-style: italic;
+            margin-left: 10px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+
+    .details {
+        > div > span {
+            float: left;
+            width: 100px;
+            line-height: 34px;
+        }
+    }
+
+    .rating {
+        .rating(24px);
+        margin: 10px 0;
     }
 }

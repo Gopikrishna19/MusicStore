@@ -8,6 +8,8 @@
             <div class="wrapper">
                 <ul class="right">
                     <li><?php ActionLink::create("Search","search",NULL,NULL,NULL,"menu"); ?></li>
+                    <li><?php ActionLink::create("Bands","band",NULL,NULL,NULL,"menu"); ?></li>
+                    <li><?php ActionLink::create("Concerts","concert",NULL,NULL,NULL,"menu"); ?></li>
                     <li><?php ActionLink::create("My Profile","profile","of",User::name(),NULL,"menu"); ?></li>
                     <li><?php ActionLink::create("Log Out","home","logout",NULL,NULL,"menu"); ?></li>
                 </ul>

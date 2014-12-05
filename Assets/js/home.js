@@ -49,7 +49,7 @@ $(function () {
     });
 
     $(".register").submit(function () {
-        var uname = $(".uname", this), upass = $(".upass", this), cpass = $(".cpass", this), ctx = this;
+        var uname = $(".uname", this), upass = $(".upass", this), cpass = $(".cpass", this);
 
         upass.blur();
         cpass.blur();

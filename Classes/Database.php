@@ -2,6 +2,7 @@
     class Database extends PDO {
         public function __construct() {            
             parent::__construct('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
         /**
@@ -41,7 +42,7 @@
             $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
             
             foreach ($data as $key => $value) {
-                $sth->bindValue(":$key", $value);
+                $sth->bindValue(":$key", $value);                
             }            
             
             $sth->execute();

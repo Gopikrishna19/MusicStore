@@ -5,13 +5,27 @@
     margin: auto;
     padding: 25px;
 
-    .left {
+    form.filter {
+        float: right;
+
+        label {
+            margin-right: 12px;
+        }
+
+        .txt {
+            display: inline-block;
+            width: auto;
+            padding: 5px 10px;
+        }
+    }
+
+    > .left {
         float: left;
         width: 50%;
         color: @midnight;
 
         .icon {
-            background-image: url(/Assets/img/concert.png);
+            .background("concert");
             height: 100px;
             background-size: 75px 75px;
             background-position: center center;
@@ -21,10 +35,8 @@
             background-color: #FFF;
             box-shadow: 0 0 3px #AAA;
             margin-top: 16px;
-        }
-
-        div:not(.icon) {
-            margin-left: 150px;
+            margin-right: 25px;
+            margin-bottom: 25px;
         }
 
         .title {
@@ -40,6 +52,40 @@
             }
         }
 
+        .genres {
+            padding-top: 25px;
+
+            &::before {
+                content: "Genres";
+            }
+
+            a {
+                .block();
+                margin-right: 12px;
+                margin-bottom: 12px;
+                padding: 5px 10px;
+                display: inline-block;
+
+                &:hover {
+                    box-shadow: 0 0 2px @highlight;
+                    border-color: @highlight;
+                }
+            }
+        }
+
+        .options::before {
+            content: "Actions";
+        }
+
+        .genres, .options {
+            &::before {
+                display: block;
+                padding-bottom: 12px;
+                font-size: 20px;
+                font-weight: 600;
+            }
+        }
+
         .label {
             font-weight: 600;
 
@@ -47,27 +93,49 @@
                 font-weight: 400;
                 font-size: 14px;
             }
-        }
 
-        .band::before {
-            content: "Performed by: ";
-        }
+            &.band {
+                clear: left;
 
-        .date::before {
-            content: "Date: ";
-        }
+                &::before {
+                    content: "Performed by: ";
+                }
+            }
 
-        .time::before {
-            content: "Time: ";
-        }
+            &.date::before {
+                content: "Date: ";
+            }
 
-        .venue {
-            margin-bottom: 25px;
+            &.time::before {
+                content: "Time: ";
+            }
 
-            &::before {
+            &.url::before {
+                content: "Website: ";
+            }
+
+            &.genre::before {
+                content: "Primary Genre: ";
+            }
+
+            &.fans::before {
+                content: "Number of Fans: ";
+            }
+
+            &.ticket {
+                margin-top: 25px;
+
+                &::before {
+                    content: "Ticket: ";
+                }
+            }
+
+            &.venue::before {
                 content: "Venue: ";
             }
         }
+
+
 
         .approve {
             font-size: 12px;
@@ -89,10 +157,30 @@
 
         .rating {
             .rating(40px);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        &.band {
+            .icon {
+                .background("band");
+            }
+
+            .title {
+                margin-top: 25px;
+            }
+
+            .genres::before {
+                content: "Artists";
+            }
+
+            .options {
+                margin-top: 12px;
+            }
         }
     }
 
-    .right {
+    > .right {
         float: right;
         width: 47.5%;
 
@@ -101,6 +189,34 @@
 
             .text {
                 margin-bottom: 20px;
+            }
+        }
+
+        .newpost {
+            transition: all .5s;
+            height: 140px;
+            overflow: hidden;
+
+            &.no-focus {
+                height: 46px;
+                padding: 0;
+            }
+
+            .left {
+                float: left;
+                margin-top: 8px;
+            }
+
+            .right {
+                float: right;
+
+                .link {
+                    margin-right: 12px;
+
+                    &:hover {
+                        color: @pomegranate;
+                    }
+                }
             }
         }
 
@@ -117,5 +233,32 @@
     .stamp {
         margin-bottom: 6px;
         .stamp();
+    }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .section-filter {
+        margin: 12px 0;
+        font-weight: 600;
+    }
+
+    .section {
+        padding-top: 25px;
+
+        .entry {
+            .block();
+            width: 29% !important;
+
+            .stamp {
+                margin-bottom: 0;
+            }
+
+            &.concert.full {
+                width: 100% !important;
+            }
+        }
     }
 }

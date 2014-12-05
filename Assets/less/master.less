@@ -89,6 +89,10 @@ form {
         &:focus {
             border-color: @amethyst;
         }
+
+        &.error {
+            border-color: @pomegranate;
+        }
     }
 
     .btn {
@@ -116,7 +120,32 @@ form {
     .content {
         overflow: auto;
 
+        > a.link {
+            &:hover {
+                color: @highlight;
+            }
+
+            &.clear-both {
+                clear: left;
+                display: block;
+                margin-bottom: 25px;
+            }
+        }
+
         .section {
+            a.genre {
+                .block();
+                margin-right: 12px;
+                margin-bottom: 12px;
+                padding: 5px 10px;
+                display: inline-block;
+
+                &:hover {
+                    box-shadow: 0 0 2px @highlight;
+                    border-color: @highlight;
+                }
+            }
+
             .entry {
                 display: inline-block;
                 width: 45%;
@@ -143,7 +172,7 @@ form {
                     text-overflow: ellipsis;
                     overflow: hidden;
                     vertical-align: middle;
-                    width: 240px;
+                    max-width: 240px;
                 }
 
                 .stamp {
@@ -151,46 +180,9 @@ form {
                     .stamp();
                 }
 
-                div:not(.icon) {
+                div:not(.icon):not(.delete) {
                     margin-left: 75px;
                     padding-left: 12px;
-                }
-
-                .options {
-                    width: 0;
-                    overflow: hidden;
-                    .absolute(0,auto,0,0);
-                    background-color: fade(@midnight, 90%);
-                    transition: width .2s;
-
-                    li {
-                        width: 21px;
-                        height: 21px;
-                        margin: 2px 7px;
-                        background-size: 100% 100%;
-                        cursor: pointer;
-
-                        &.go {
-                            .background("view");
-
-                            a {
-                                display: block;
-                                height: 100%;
-                            }
-                        }
-
-                        &.rm {
-                            .background("delete");
-                        }
-
-                        &.at {
-                            .background("add");
-                        }
-
-                        &.dn {
-                            .background("done");
-                        }
-                    }
                 }
 
                 &.concert .icon {
@@ -199,6 +191,10 @@ form {
 
                 &.follow .icon {
                     .background("follow");
+                }
+
+                &.list .icon {
+                    .background("list");
                 }
 
                 &.band {
@@ -211,13 +207,299 @@ form {
                         line-height: 75px;
                     }
                 }
+            }
+        }
+
+        .options {
+            button {
+                .block();
+                margin-right: 12px;
+                margin-bottom: 12px;
+                padding: 7px 20px;
+                border: none;
 
                 &:hover {
-                    .options {
-                        width: 35px;
+                    box-shadow: 0 0 4px @amethyst;
+                }
+
+                &:active {
+                    box-shadow: 0 0 2px @amethyst inset;
+                }
+
+                &.follow, &.fan {
+                    transition: background-color .3s, color .2s;
+
+                    &:hover {
+                        background-color: @emerald;
+                        color: white;
+                    }
+
+                    &.yes {
+                        background-color: @emerald;
+                        color: white;
+
+                        &:hover {
+                            background-color: @pomegranate;
+                        }
+                    }
+                }
+
+                &.attend {
+                    transition: background-color .3s, color .2s;
+
+                    &:hover {
+                        background-color: @emerald;
+                        color: white;
+                    }
+
+                    &.yes {
+                        background-color: @emerald;
+                        color: white;
+
+                        &:hover {
+                            background-color: @pomegranate;
+                        }
+                    }
+
+                    &.no {
+                        background-color: @pomegranate;
+                        color: white;
+
+                        &:hover {
+                            background-color: @highlight;
+                        }
+                    }
+
+                    &.done {
+                        background-color: @highlight;
+                        color: white;
+
+                        &:hover {
+                            background-color: @pomegranate;
+                        }
                     }
                 }
             }
         }
     }
+
+    .edit-diag {
+        display: none;
+        .fixed(@header-height, 0, 0, 0, 10);
+        background-color: fade(@midnight, 25%);
+
+        .table {
+            display: table;
+            width: 100%;
+            height: 100%;
+
+            .cell {
+                display: table-cell;
+                vertical-align: middle;
+
+                .form {
+                    .block();
+                    width: 600px;
+                    margin: auto;
+                    border-color: @asbestos;
+                    height: 400px;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 12px 0;
+
+                    form:not(.form1) {
+                        height: 100%;
+
+                        .txt {
+                            &:hover, &:focus {
+                                border-color: transparent;
+                            }
+                        }
+
+                        .genre-wrap {
+                            height: 100%;
+                            margin-bottom: -110px;
+                            padding-bottom: 110px;
+
+                            .genres {
+                                -webkit-user-select: none;
+                                height: 100%;
+                                overflow: auto;
+                                text-align: center;
+                                padding: 12px 0;
+                                background-color: @clouds;
+                                border: 1px solid darken(@clouds, 10%);
+
+                                .genre {
+                                    background-color: white;
+                                    display: inline-block;
+                                    padding: 5px 10px;
+                                    margin: 4px 6px;
+                                    box-shadow: 0 0 4px @asbestos;
+                                    border-radius: 2px;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        box-shadow: 0 0 2px @pomegranate;
+                                    }
+                                }
+                            }
+                        }
+
+                        .controls {
+                            text-align: right;
+                            margin-top: 12px;
+                            padding-right: 12px;
+                        }
+
+                        .datalist {
+                            .absolute(55px,12px,auto, 12px);
+                            background-color: white;
+                            box-shadow: 0 0 4px @asbestos;
+                            display: none;
+
+                            li {
+                                padding: 5px 20px;
+
+                                &:first-child {
+                                    background-color: @silver;
+                                    margin-top: 5px;
+                                }
+
+                                &:last-child {
+                                    margin-bottom: 5px;
+                                }
+
+                                &:hover {
+                                    background-color: @clouds;
+                                }
+                            }
+                        }
+
+                        .txt.genre:focus ~ .datalist {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+        .edit-diag .table .cell .form form.concert.form1 {
+            padding: 50px 12px;
+            height: 100%;
+            overflow: hidden;
+
+            .row {
+                overflow: auto;
+
+                label {
+                    float: left;
+                    width: 60px;
+                    line-height: 44px;
+                }
+
+                .txt {
+                    border-color: @clouds;
+
+                    &.error {
+                        border-color: @pomegranate;
+                    }
+
+                    &:focus {
+                        border-color: @amethyst;
+                    }
+                }
+            }
+
+            .row2, .row3 {
+                .txt {
+                    float: left;
+                    width: 200px;
+                    display: inline-block;
+
+                    &:nth-of-type(1) {
+                        margin-right: 56px;
+                    }
+                }
+            }
+
+            .row4 {
+                .txt:first-child {
+                    width: 200px;
+                    float: left;
+                    margin-right: 12px;
+                }
+
+                .txt:last-child {
+                    width: 364px;
+                    display: inline-block;
+                }
+            }
+
+            .row5 {
+                text-align: right;
+
+                .link {
+                    line-height: 44px;
+                    margin-right: 12px;
+
+                    &:hover {
+                        color: @highlight;
+                    }
+                }
+            }
+        }
+
+        .edit-diag .table .cell .form.list {
+            height: 125px;
+            padding: 12px;
+            text-align: right;
+
+            form {
+                .status {
+                    float: left;
+                    font-style: italic;
+                    font-size: 14px;
+                    padding-left: 20px;
+                    text-align: center;
+                    height: 23px;
+                    line-height: 44px;
+                }
+
+                .txt {
+                    border-color: @clouds;
+
+                    &.error {
+                        border-color: @pomegranate;
+                    }
+
+                    &:hover {
+                        border-color: fade(@asphalt, 50%);
+                    }
+
+                    &:focus {
+                        border-color: @amethyst;
+                    }
+                }
+
+                .link {
+                    line-height: 44px;
+                    margin-right: 12px;
+
+                    &:hover {
+                        color: @highlight;
+                    }
+                }
+            }
+
+            p {
+                text-align: left;
+                color: @asphalt;
+                float: left;
+                width: 300px;
+                font-size: 14px;
+                padding-left: 12px;
+            }
+        }
 }

@@ -33,8 +33,9 @@
 
         public static function isFollower($username) {
             $db = new Database();
-            return $db->select("select username from user join follow using(userid) where username = :uname",
-                                [":uname"=>$username]) != NULL;
+            return $db->select("select username from user join follow using(userid) ".
+                                "where followerid = :followerid and username = :uname",
+                                [":followerid" => User::id() ,":uname"=>$username]) != NULL;
         }
     }
 ?>

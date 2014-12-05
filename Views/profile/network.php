@@ -2,73 +2,58 @@
 <div class="content">
     <?php if($this->following != NULL): $nothing = FALSE; ?>
     <div class="section-title">I am Following</div>
-    <div class="section by">
+    <div class="section flin">
         <?php foreach($this->following as $entry): ?>
-        <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
+        <a class="entry block follow" href="/profile/of/<?php echo $entry["username"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
             <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
-            <ul class="options">
-                <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
-                <li class="rm" title="Unfollow"></li>
-            </ul>
-        </div>
+        </a>
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
 
     <?php if($this->follower != NULL): $nothing = FALSE; ?>
     <div class="section-title">Following Me</div>
-    <div class="section by">
+    <div class="section fler">
         <?php foreach($this->follower as $entry): ?>
-        <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
+        <a class="entry block follow" href="/profile/of/<?php echo $entry["username"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
-            <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
-            <ul class="options">
-                <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
-                <li class="rm" title="Unfollow"></li>
-            </ul>
-        </div>
+            <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>            
+        </a>
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
 
     <?php if(isset($this->mfollowing) && $this->mfollowing != NULL): $nothing = FALSE; ?>
     <div class="section-title">Mutually Following</div>
-    <div class="section by">
+    <div class="section mflin">
         <?php foreach($this->mfollowing as $entry): ?>
-        <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
+        <a class="entry block follow" href="/profile/of/<?php echo $entry["username"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
             <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
-            <ul class="options">
-                <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
-                <li class="rm" title="Unfollow"></li>
-            </ul>
-        </div>
+        </a>
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
 
     <?php if(isset($this->mfollower) && $this->mfollower != NULL): $nothing = FALSE; ?>
     <div class="section-title">Mutual Followers</div>
-    <div class="section by">
+    <div class="section mfler">
         <?php foreach($this->mfollower as $entry): ?>
-        <div class="entry block follow" data-id="<?php echo $entry["userid"]; ?>">
+        <a class="entry block follow" href="/profile/of/<?php echo $entry["username"]; ?>">
             <div class="icon"></div>
             <div class="name"><?php echo trim($entry["fname"]) == "" ? $entry["username"] : $entry["fname"]; ?></div>
             <div class="stamp">on <?php echo Format::prettyDateTime($entry["followdate"]); ?></div>
-            <ul class="options">
-                <li class="go" title="View Profile"><?php ActionLink::create("","profile","of",$entry["username"],NULL,"go"); ?></li>
-                <li class="rm" title="Unfollow"></li>
-            </ul>
-        </div>
+        </a>
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
 
     <?php if($nothing): ?>
     <div class="section-title empty">Sorry, there are no connections to display.</div>
+    <div>Click "Search" to find new people to connect to</div>
     <?php endif; ?>
 </div>
