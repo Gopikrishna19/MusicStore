@@ -90,6 +90,8 @@
             if(User::isOwner($username) || User::isFollower($username)) {
                 $this->view->fan = $this->model->readFan($username);
             }
+            $this->view->genres = $this->model->getGenres();
+
             $this->view->renderView(__CLASS__,__FUNCTION__);
         }
 
@@ -194,6 +196,10 @@
 
         public function xhrCreateList($listname) {
             $this->model->createList($listname);
+        }
+
+        public function xhrCreateBand($bname, $catid) {
+            $this->model->createBand($bname, $catid);
         }
 
         public function xhrDeleteList($listid) {

@@ -308,6 +308,9 @@ $(function () {
         })
     });
 
+    // ================================================================================
+    // Delete concert from list
+    //
     $(".block.concert .delete").click(function (e) {
         e = e || Event;
         e.preventDefault();
@@ -321,4 +324,42 @@ $(function () {
             }
         })
     })
+
+    // ================================================================================
+    // Create new concert list
+    //
+    // Open new concert list dialog
+    //
+    $(".edit.band").click(function () {
+        $("#edit-band").fadeIn();
+
+        var form = $("form.band"),
+            listname = $(".listname", form);
+
+        listname.unbind();
+        form.unbind().submit(false);
+
+        listname.blur(function () {
+            if (listname.val().trim() == "") listname.addClass("error");
+            else listname.removeClass("error");
+        });
+
+        form.submit(function () {
+            listname.blur();
+
+            if (!listname.hasClass("error")) {
+                $.ajax({
+                    url: "/profile/xhrCreateBand/" + listname.val(),
+                    success: function () {
+                        $("#edit-list").fadeOut(function () {
+                            console.log(e);
+                            //location.reload();
+                        })
+                    }
+                });
+            }
+        });
+    });
+
+    $("form.band .cancel").click(function () { $("#edit-band").fadeOut(); })
 });

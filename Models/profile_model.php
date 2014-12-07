@@ -135,6 +135,12 @@
             $this->db->insert($table."genre", [$col => $colval, "subcatid" => $subcatid]);
         }
 
+        public function createBand($bname, $catid) {
+            $this->db->insert("band", ["bname" => $bname, "catid" => $catid]);
+            $id = $this->db->lastInsertId();
+            $this->db->insert("artist", ["userid" => User::id(), "bandid" => $id]);
+        }
+
         public function deleteSubGenre($table, $subcatid, $concertid) {
             $col = $table == "concert" ? "cid" : "userid";
             $colval = $table == "concert" ? $concertid : User::id();
